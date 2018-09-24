@@ -62,7 +62,6 @@ extension FirstViewController{
         repairTypes.removeAllItems()
         addItemsForComboBox(element: repairTypes, items: ["用户送修", "用户返修"])
         registroPerson.removeAllItems()
-        addItemsForComboBox(element: registroPerson, items: <#T##[Any]#>)
         clientTypes.removeAllItems()
         cellPhoneBands.removeAllItems()
         cellPhoneModels.removeAllItems()
