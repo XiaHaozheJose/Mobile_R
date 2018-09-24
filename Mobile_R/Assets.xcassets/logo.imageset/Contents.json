@@ -1,0 +1,34 @@
+{
+  "images" : [
+    {
+      "idiom" : "mac"
+    },
+    {
+      "idiom" : "mac",
+      "scale" : "1x"
+    },
+    {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "tile",
+          "width" : 1,
+          "height" : 1
+        },
+        "cap-insets" : {
+          "bottom" : 120,
+          "top" : 119,
+          "right" : 200,
+          "left" : 199
+        }
+      },
+      "idiom" : "mac",
+      "filename" : "logo.png",
+      "scale" : "2x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}
