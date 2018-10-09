@@ -7,159 +7,131 @@
 //
 
 import Cocoa
+import Alamofire
 
-class ViewController: NSViewController,NSTableViewDataSource,NSTextFieldDelegate,NSOutlineViewDataSource,NSOutlineViewDelegate {
-
-    var fruits = ["apple", "orange", "banana", "watermelon"]
+class ViewController: NSViewController,NSTextFieldDelegate{
     
-    @IBOutlet weak var textField: NSTextField!
+    @objc dynamic var ordenModels: [OrdenModel] = []
     
-    @IBOutlet weak var tableView: NSTableView!
-    
-    @IBOutlet weak var outLineView: NSOutlineView!
-    
-    @IBOutlet var treeController: NSTreeController!
+    lazy var registerView: FirstViewController = {
+        let v = FirstViewController.loadFromNib()
+        v.delegate = self
+        return v
+    }()
     // MARK: - Cycle Life
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        getOrdenData()
         // Do any additional setup after loading the view.
-        
-        addData()
-        outLineView.expandItem(nil, expandChildren: true)
-        outLineView.registerForDraggedTypes([NSPasteboard.PasteboardType.string])
-    }
-
-    // MARK: - Function
-    @IBAction func addFruit(_ sender: Any?) {
-        let str = textField.stringValue
-        if str.count > 0 {
-            fruits.append(str)
-            textField.stringValue = ""
-            tableView.reloadData()
-        }
     }
     
-    @IBAction func presentNextPage(_ sender: Any) {
-        presentViewControllerAsSheet(SecondViewController.loadFromNib())
-    }
-    
-    
-    func addData(){
-        let library: [String : Any] = [
-            "name": "Library",
-            "isLeaf": false
-            ]
-        let music: [String : Any] = [
-            "name": "Music",
-            "isLeaf": false
-        ]
-        
-        let dict: NSMutableDictionary = NSMutableDictionary(dictionary: library)
-        let p1 = Playlist()
-        p1.name = "P1"
-        
-        let p2 = Playlist()
-        p2.name = "P2"
-        
-        dict.setObject([p1,p2], forKey: "children" as NSCopying)
-        
-        treeController.addObject(dict)
-        treeController.addObject(music)
-    }
-    
-    func isHeader(item: Any) -> Bool{
-        if let item = item as? NSTreeNode{
-            return !(item.representedObject is Playlist)
-        }else {
-            return !(item is Playlist)
-        }
-    }
-
-    func reverse(source: NSTreeNode?, fromIndexPath: IndexPath?){
-        treeController.move(source!, to: fromIndexPath!)
-        
-    }
-    
-    
-    // MARK: - TableViewDataSource, OutlineDataSource
-    func numberOfRows(in tableView: NSTableView) -> Int {
-        return fruits.count
-    }
-    
-    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        return fruits[row]
-    }
-    
-    func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
-        if isHeader(item: item) {
-            return outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "HeaderCell"), owner: self)
-        }else{
-            return outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DataCell"), owner: self)
-        }
-    }
-    
-    func outlineView(_ outlineView: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: Any?, proposedChildIndex index: Int) -> NSDragOperation {
-        return NSDragOperation.every
-    }
-    
-    func outlineView(_ outlineView: NSOutlineView, pasteboardWriterForItem item: Any) -> NSPasteboardWriting? {
-        let pItem = NSPasteboardItem()
-        if let playlist = ( item as? NSTreeNode)?.representedObject as? Playlist{
-            pItem.setString(playlist.name, forType: NSPasteboard.PasteboardType.string)
-            return pItem
+    func generateBarcode(from string: String) -> CIImage? {
+        let data = string.data(using: String.Encoding.ascii)
+        if let filter = CIFilter(name: "CICode128BarcodeGenerator") {
+            filter.setValue(data, forKey: "inputMessage")
+            filter.setValue(NSNumber(integerLiteral: 5), forKey: "inputQuietSpace")
+            let transform = CGAffineTransform(scaleX: 3, y: 3)
+            if let output = filter.outputImage?.transformed(by: transform) {
+                return output
+            }
         }
         return nil
     }
     
-    func outlineView(_ outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: Any?, childIndex index: Int) -> Bool {
-        let pb = info.draggingPasteboard()
-        let name = pb.string(forType: NSPasteboard.PasteboardType.string)
+    @IBAction func presentNextPage(_ sender: Any) {
+        showAlert()
+    }
+    
+    
+    
+    // MARK: - TextfieldDelegate
+    override func controlTextDidEndEditing(_ obj: Notification) {
         
-        var sourceNode: NSTreeNode?
-        
-        if let item = item as? NSTreeNode, item.children != nil {
-            for node in item.children! {
-                if let playlist = node.representedObject as? Playlist{
-                    if playlist.name == name{
-                        sourceNode = node
+    }
+    
+    
+}
+
+
+// MARK: - Custom Function
+extension ViewController{
+    private func getOrdenData(){
+        Alamofire.request(BaseURL.FireBaseData + API_ORDEN, method: .get).responseJSON { (response) in
+            switch response.result{
+            case .success(_):
+                if let result = response.result.value as? [String: Any]{
+                    for (key,value) in result{
+                        if var val = value as? [String: Any]{
+                            val["key"] = key
+                            self.ordenModels.append(OrdenModel(data: val))
+                        }
                     }
                 }
+            case .failure(let error):
+                print(error)
+                break
             }
         }
-        if sourceNode == nil{
-            return false
+    }
+    
+    private func showAlert(){
+        let alert = NSAlert()
+        alert.alertStyle = .informational
+        alert.messageText = "新单🥚"
+        alert.informativeText = "确定要创建一个新单吗,你确定吗😄😄"
+        alert.addButton(withTitle: "确定✅") // 1000
+        alert.addButton(withTitle: "取消❌") // 1001
+        alert.addButton(withTitle: "疑问❓") // 1002
+        alert.beginSheetModal(for: NSApplication.shared.keyWindow!) { (response) in
+            switch response.rawValue {
+            case 1000: do{
+                self.presentViewControllerAsModalWindow(self.registerView)
+                }
+            case 1001: do{
+                
+                }
+            case 1002: do{
+                
+                }
+            default:
+                return
+            }
         }
-        let fromIndexPath = treeController.selectionIndexPath
-        let indexArr: [Int] = [0, index]
-        let toIndexPath = NSIndexPath(indexes: indexArr, length: 2)
-        
-        undoManager?.registerUndo(withTarget: self, handler: { (_) in
-            self.reverse(source: sourceNode, fromIndexPath: fromIndexPath)
-        })
-        treeController.move(sourceNode!, to: toIndexPath as IndexPath)
-        return true
+    }
+}
+
+// MARK: - RegisterViewDelegate
+extension ViewController: RegisterViewDelegate{
+    //上传数据 代理
+    func DataIsSubmited(key: String) {
+        let url = BaseURL.FireBaseData + "/orden/\(key).json"
+        updateOrdenModels(key: key, urlName: url, isGetRequest: true)
+    }
+    
+    private func updateOrdenModels(key: String, urlName: String, isGetRequest: Bool){
+        Alamofire.request(urlName, method: .get).responseJSON { (response) in
+            switch response.result{
+            case .success(_):
+                if var result = response.result.value as? [String: Any]{
+                    result["key"] = key
+                    self.ordenModels.append(OrdenModel(data: result))
+                }
+            case .failure(let error):
+                print(error)
+                break
+            }
+        }
+    }
+}
+
+// MARK: - NSTableViewDelegate
+extension ViewController: NSTableViewDelegate{
+    func tableView(_ tableView: NSTableView, didClick tableColumn: NSTableColumn) {
+        print(tableColumn)
     }
     
     
     
-    // MARK: - TextfieldDelegate, OutlineDelegate
-    override func controlTextDidEndEditing(_ obj: Notification) {
-        addFruit(nil)
-    }
-    
-   
-//    func outlineView(_ outlineView: NSOutlineView, isGroupItem item: Any) -> Bool {
-//        return isHeader(item:item)
-//    }
-//
-//    func outlineView(_ outlineView: NSOutlineView, shouldSelectItem item: Any) -> Bool {
-//        return !isHeader(item: item)
-//    }
-//
-//    func outlineView(_ outlineView: NSOutlineView, shouldShowOutlineCellForItem item: Any) -> Bool {
-//        return !isHeader(item: item)
-//    }
     
 }
 

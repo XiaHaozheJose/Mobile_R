@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>model</key>
+		<array>
+			<string>Iphone 5s</string>
+			<string>Iphone 6</string>
+			<string>Iphone 6 plus</string>
+			<string>Iphone 6s</string>
+			<string>Iphone 6s plus</string>
+			<string>Iphone 7</string>
+			<string>Iphone 7 plus</string>
+			<string>iphone 7s</string>
+			<string>iphone 7s plus</string>
+			<string>iphone 8</string>
+			<string>Iphone 8 plus</string>
+			<string>iphone X</string>
+			<string>Iphone XR</string>
+			<string>Iphone XS</string>
+			<string>Iphone XS MAX</string>
+		</array>
+		<key>band</key>
+		<string>Apple</string>
+	</dict>
+	<dict>
+		<key>model</key>
+		<array>
+			<string>Aquaris 5</string>
+			<string>Aquaris A4.5</string>
+			<string>Aquaris C</string>
+			<string>Aquaris E4.5</string>
+			<string>Aquaris E5</string>
+			<string>Aquaris E6</string>
+			<string>Aquaris E10</string>
+			<string>Aquaris X2</string>
+			<string>Aquaris X2 Pro</string>
+			<string>Aquaris VS</string>
+			<string>Aquaris VS Plus</string>
+			<string>Aquaris V</string>
+			<string>Aquaris V Plus</string>
+			<string>Aquaris U</string>
+			<string>Aquaris U Plus</string>
+			<string>Aquaris U Lite</string>
+			<string>Aquaris M 2017</string>
+			<string>Aquaris M4.5</string>
+			<string>Aquaris M5</string>
+			<string>Aquaris M5.5</string>
+			<string>Aquaris X</string>
+			<string>Aquaris X5</string>
+			<string>Aquaris X Pro</string>
+			<string>Aquaris U2</string>
+			<string>Aquaris U2Lite</string>
+		</array>
+		<key>band</key>
+		<string>BQ</string>
+	</dict>
+	<dict>
+		<key>model</key>
+		<array>
+			<string>K7</string>
+			<string>K8 2017</string>
+			<string>K8 2018</string>
+			<string>K10 2017</string>
+			<string>K10 2018</string>
+			<string>K11 </string>
+			<string>K11 Plus</string>
+			<string>K11 Alpha</string>
+			<string>G Flex</string>
+			<string>G Flex 2</string>
+			<string>G3</string>
+			<string>G4</string>
+			<string>G5</string>
+			<string>G6</string>
+			<string>G7 One</string>
+			<string>G7 Fit</string>
+			<string>G7 ThinQ</string>
+			<string>G7 Plus</string>
+			<string>Q</string>
+			<string>Q6</string>
+			<string>Q6 Plus</string>
+			<string>Q6 Alpha</string>
+			<string>Q7</string>
+			<string>Q7 Plus</string>
+			<string>Q7 Alpha</string>
+			<string>Q8 2018</string>
+			<string>X</string>
+			<string>X4</string>
+			<string>X5 </string>
+			<string>V20</string>
+			<string>V30S</string>
+			<string>V35</string>
+		</array>
+		<key>band</key>
+		<string>LG</string>
+	</dict>
+	<dict>
+		<key>model</key>
+		<array>
+			<string>Huawei Mate 20 Lite</string>
+			<string>Huawei P Smart+</string>
+			<string>Huawei Nova 2</string>
+			<string>Huawei Nova 3</string>
+			<string>Huawei Y3 2018</string>
+			<string>Huawei Y5 2018</string>
+			<string>Huawei Y5 Prime</string>
+			<string>Huawei Y6 2017</string>
+			<string>Huawei Y6 2018</string>
+			<string>Huawei Y7 2018</string>
+			<string>Huawei Y9 2018</string>
+			<string>Huawei Mate RS</string>
+			<string>Huawei Mate 9</string>
+			<string>Huawei Mate 9 Pro</string>
+			<string>Huawei Mate 9 Lite</string>
+			<string>Huawei Mate10</string>
+			<string>Huawei Mate 10 Lite</string>
+			<string>Huawei Enjoy</string>
+			<string>Huaweo P10</string>
+			<string>Huawei P10 Plus</string>
+			<string>Huawei P10 Lite</string>
+			<string>Huawei P20 </string>
+			<string>Huawei P20Pro</string>
+			<string>Huawei P20 Lite</string>
+		</array>
+		<key>band</key>
+		<string>Huawei</string>
+	</dict>
+	<dict>
+		<key>model</key>
+		<array>
+			<string>Galaxy S6</string>
+			<string>Galaxy S7</string>
+			<string>Galaxy S7 Edge</string>
+			<string>Galaxy S8 </string>
+			<string>Galaxy S8 plus</string>
+			<string>Galaxy S8 Edge</string>
+			<string>Galaxy S9</string>
+			<string>Galaxy S9 plus</string>
+			<string>Galaxy S Light Luxury</string>
+			<string>Galaxy A3 2017</string>
+			<string>Galaxy A5 2017</string>
+			<string>Galaxy A6</string>
+			<string>Galaxy A6 Plus</string>
+			<string>Galaxy A7 2017</string>
+			<string>Galaxy A7 2018</string>
+			<string>Galaxy A8 2016</string>
+			<string>Galaxy A8 2018</string>
+			<string>Galaxy A8 plus</string>
+			<string>Galaxy A8 Star</string>
+			<string>Galaxy A9 Star Lite</string>
+			<string>Galaxy A9 Star</string>
+			<string>Galaxy A9 2016</string>
+			<string>Galaxy J1 2016</string>
+			<string>Galaxy J2 Core</string>
+			<string>Galaxy J2 Pro 2018</string>
+			<string>Galaxy J3 2016</string>
+			<string>Galaxy J3 2017</string>
+			<string>Galaxy J3 2018</string>
+			<string>Galaxy J5 Pro</string>
+			<string>Galaxy J5 2016</string>
+			<string>Galaxy J5 2017</string>
+			<string>Galaxy J6</string>
+			<string>Galaxy J7 2016</string>
+			<string>Galaxy J7 2017</string>
+			<string>Galaxy J7 2018</string>
+			<string>Galaxy J7 Duo</string>
+			<string>Galaxy J7 Prime 2</string>
+			<string>Galaxy Note7</string>
+			<string>Galaxy Note8 Active</string>
+			<string>Galaxy Note8</string>
+			<string>Galaxy Note9</string>
+			<string>Galaxy Note Fe</string>
+			<string>Other</string>
+		</array>
+		<key>band</key>
+		<string>Samsung</string>
+	</dict>
+	<dict>
+		<key>model</key>
+		<array>
+			<string>Xperia C4</string>
+			<string>Xperia C5</string>
+			<string>Xperia E</string>
+			<string>Xperia E1</string>
+			<string>Xperia E2</string>
+			<string>Xperia E3</string>
+			<string>Xperia E4</string>
+			<string>Xperia R1</string>
+			<string>Xperia R1 Plus</string>
+			<string>Xperia L2</string>
+			<string>Xperia M2</string>
+			<string>Xperia M3</string>
+			<string>Xperia M4</string>
+			<string>Xperia M5</string>
+			<string>Xperia Z3</string>
+			<string>Xperia Z4</string>
+			<string>Xperia Z5</string>
+			<string>Xperia X</string>
+			<string>Xperia XA</string>
+			<string>Xperia XA1</string>
+			<string>Xperia XA2</string>
+			<string>Xperia XA2 Plus</string>
+			<string>Xperia XZ</string>
+			<string>Xperia XZ1</string>
+			<string>Xperia XZ1 Compact</string>
+			<string>Xperia XZ2</string>
+			<string>Xperia XZ2 Compact</string>
+			<string>Xperia XZ3</string>
+			<string>Xperia ZR</string>
+			<string>Xperia TX</string>
+			<string>Other</string>
+		</array>
+		<key>band</key>
+		<string>SONY</string>
+	</dict>
+	<dict>
+		<key>model</key>
+		<array>
+			<string>Mi A1</string>
+			<string>Mi A2</string>
+			<string>Mi A2 Lite</string>
+			<string>Mi 5X</string>
+			<string>Mi 6X</string>
+			<string>Mi 6</string>
+			<string>Mi 8</string>
+			<string>Mi 8 Lite</string>
+			<string>Mi 8 Pro</string>
+			<string>Mi 8 SE</string>
+			<string>Mi 8 Explorer</string>
+			<string>Mi Max 2</string>
+			<string>Mi Max 3</string>
+			<string>Mi Redmi 5</string>
+			<string>Mi Redmi 5 Plus</string>
+			<string>Mi Redmi 5A</string>
+			<string>Mi Redmi S2</string>
+			<string>Mi RedMi 6</string>
+			<string>Mi RedMi 6 Pro</string>
+			<string>Mi RedMi 6A</string>
+			<string>Mi Redmi Note 5</string>
+			<string>Mi Redmi Note 5 Pro</string>
+			<string>Mi Note 3</string>
+			<string>Mi Note 5</string>
+			<string>Mi Note 5 Pro</string>
+			<string>Mi Pocophone F1</string>
+			<string>Mi Mix</string>
+			<string>Mi Mix 2</string>
+			<string>Mi Mix 2S</string>
+		</array>
+		<key>band</key>
+		<string>Xiaomi</string>
+	</dict>
+	<dict>
+		<key>model</key>
+		<array>
+			<string>Other</string>
+		</array>
+		<key>band</key>
+		<string>Other</string>
+	</dict>
+</array>
+</plist>
