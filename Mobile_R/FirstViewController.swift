@@ -379,10 +379,6 @@ extension FirstViewController{
 
 // MARK: - Event
 extension FirstViewController: NSComboBoxDelegate{
-    // 打印并登记
-    @IBAction func printRegistro(_ sender: NSButton) {
-        configPrintAtt()
-    }
     
     // 取消
     @IBAction func cancelRegistro(_ sender: NSButton) {

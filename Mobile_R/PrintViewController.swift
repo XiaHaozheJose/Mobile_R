@@ -9,25 +9,33 @@
 import Cocoa
 
 class PrintViewController: NSViewController {
-
+    
     
     class func loadFromNib() -> PrintViewController{
         let storyBoard = NSStoryboard(name:NSStoryboard.Name(rawValue: "Main"),bundle: nil)
         return storyBoard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "PrintViewController")) as! PrintViewController
     }
     
-   @objc dynamic var ordenModels: [OrdenModel] = []
+    @IBOutlet weak var topBarcodeImage: NSImageView!
+    @IBOutlet weak var bottomBarcodeImage: NSImageView!
+    @objc dynamic var ordenModels: [OrdenModel] = []
+
+    var codeBarImage: NSImage?{
+        didSet{
+            if codeBarImage != nil {
+                topBarcodeImage.image = codeBarImage
+                bottomBarcodeImage.image = codeBarImage
+                configPrintAtt()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        codeBarImage = GeneratorTool.getInstance().resizeCodeImage(GeneratorTool.getInstance().generateBarCodeImage(with: "xxxx"), with: CGSize(width: 150, height: 50))
+
     }
-    
-    
-    func printPage(){
-        configPrintAtt()
-    }
-    
     // 打印设置
     private func configPrintAtt(){
         var printInfo = NSPrintInfo.shared

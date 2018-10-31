@@ -20,7 +20,7 @@ class RegisterPerson: NSObject {
         setValuesForKeys(dict)
     }
     override func setValue(_ value: Any?, forUndefinedKey key: String) {
-        print(key)
-        print(value)
+//        print(key)
+//        print(value)
     }
 }

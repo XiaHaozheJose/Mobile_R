@@ -21,6 +21,7 @@ class ViewController: NSViewController,NSTextFieldDelegate{
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var searchText: NSSearchField!
     
+    
     lazy var registerView: FirstViewController = {
         let v = FirstViewController.loadFromNib()
         v.delegate = self
@@ -49,20 +50,6 @@ class ViewController: NSViewController,NSTextFieldDelegate{
         // Do any additional setup after loading the view.
     }
     
-    
-    
-    func generateBarcode(from string: String) -> CIImage? {
-        let data = string.data(using: String.Encoding.ascii)
-        if let filter = CIFilter(name: "CICode128BarcodeGenerator") {
-            filter.setValue(data, forKey: "inputMessage")
-            filter.setValue(NSNumber(integerLiteral: 5), forKey: "inputQuietSpace")
-            let transform = CGAffineTransform(scaleX: 3, y: 3)
-            if let output = filter.outputImage?.transformed(by: transform) {
-                return output
-            }
-        }
-        return nil
-    }
     
     @IBAction func presentNextPage(_ sender: Any) {
         showAlert()
@@ -199,12 +186,14 @@ extension ViewController: RegisterViewDelegate{
     }
     
     private func updateOrdenModels(key: String, urlName: String, isGetRequest: Bool){
-        Alamofire.request(urlName, method: .get).responseJSON { (response) in
+        Alamofire.request(urlName, method: .get).responseJSON {(response) in
             switch response.result{
             case .success(_):
                 if var result = response.result.value as? [String: Any]{
                     result["key"] = key
-                    self.ordenModels.append(OrdenModel(data: result))
+                    let model = OrdenModel(data: result)
+                    self.ordenModels.append(model)
+                    
                 }
             case .failure(let error):
                 print(error)

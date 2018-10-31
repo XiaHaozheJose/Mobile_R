@@ -148,7 +148,7 @@ extension RightViewController{
     @IBAction func printOrder(_ sender: NSButton) {
         let printView = PrintViewController.loadFromNib()
         printView.ordenModels.append(orden!)
-        printView.printPage()
+        self.presentViewControllerAsModalWindow(printView)
         
     }
     
