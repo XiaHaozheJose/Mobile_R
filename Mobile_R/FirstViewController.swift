@@ -16,8 +16,6 @@ protocol RegisterViewDelegate {
 class FirstViewController: NSViewController,NSWindowDelegate {
     
     // MARK: - 属性/变量
-    // 登记人员以及维修人员数组(从Firebase 获取)
-    private var registerPesonMoedels: [RegisterPerson] = []
     // 单号数据库本地文件地址
     private var ordenFilePath: String?
     
@@ -79,7 +77,6 @@ class FirstViewController: NSViewController,NSWindowDelegate {
         NSApp.stopModal()
         //        notification.object
     }
-    
 }
 
 // MARK: - Config
@@ -87,6 +84,7 @@ extension FirstViewController{
     // MARK: - 从网络获取数据
     // 初始数据
     func setData(){
+        if registerPerson.count <= 0 {
         Alamofire.request(BaseURL.FireBaseData + API_PERSON, method: .get).responseJSON { (response) in
             switch response.result{
             case .success(_):
@@ -94,7 +92,7 @@ extension FirstViewController{
                     for (key,value) in result{
                         if var val = value as? [String: Any]{
                             val["key"] = key
-                            self.registerPesonMoedels.append(RegisterPerson(dict: val))
+                            registerPerson.append(RegisterPerson(dict: val))
                         }
                     }
                     self.ordenFilePath = self.getOrdenFilePathWithShabox()
@@ -105,10 +103,14 @@ extension FirstViewController{
             case .failure(let error):
                 print(error)
                 break
-            }
+            }}
+        }else{
+            ordenFilePath = getOrdenFilePathWithShabox()
+            // Set Bands
+            _ = getCellPhoneFromPlist()
+            cleanAllDataToInitial()
         }
     }
-    
     
     // 上传数据到firebase
     private func submitDataToFireBase(){
@@ -119,6 +121,7 @@ extension FirstViewController{
         let rOrden = registroNum.stringValue
         let cType = clientTypes.stringValue
         let cName = clientName.stringValue
+        let cAddress = clientAddress.stringValue
         let cContactName = clientContact.stringValue
         let cNum = clientPhone.stringValue
         let mBand = cellPhoneBands.stringValue
@@ -156,6 +159,7 @@ extension FirstViewController{
                       OrdenKeys.ordenNum: rOrden,
                       OrdenKeys.clientType: cType,
                       OrdenKeys.clientName: cName,
+                      OrdenKeys.clientAddress: cAddress,
                       OrdenKeys.clientContactName: cContactName,
                       OrdenKeys.clientContactNum: cNum,
                       OrdenKeys.mobileBand: mBand,
@@ -169,8 +173,8 @@ extension FirstViewController{
                       OrdenKeys.prePayment: rPrePayment,
                       OrdenKeys.prePrice: rForecastPrice,
                       OrdenKeys.repairPerson: personRepair,
-                      OrdenKeys.note: moreNote]
-        
+                      OrdenKeys.note: moreNote,
+                      OrdenKeys.repairStatus: 0] as [String : Any]
         do {
             // 网络请求
             let data = try JSONSerialization.data(withJSONObject: params, options: [])
@@ -185,8 +189,6 @@ extension FirstViewController{
                     DispatchQueue.main.async {
                         self.saveLocalData()
                     }
-                    
-                    
                 }
                 }.resume()
             
@@ -240,7 +242,7 @@ extension FirstViewController{
         repairPersons.removeAllItems()
         registroPerson.isEditable = false
         repairPersons.isEditable = false
-        for model in registerPesonMoedels {
+        for model in registerPerson {
             addItemsForComboBox(element: registroPerson, items: [model.name])
             addItemsForComboBox(element: repairPersons, items: [model.name])
         }

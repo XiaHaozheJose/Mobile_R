@@ -18,9 +18,10 @@ class OrdenModel: NSObject {
     @objc var clientName: String = ""
     @objc var clientContactName: String = ""
     @objc var clientContactNum: String = ""
+    @objc var clientAddress: String = ""
     @objc var mobileBand: String = ""
     @objc var mobileModel: String = ""
-    @objc var mobileIEI: String = ""
+    @objc var mobileIMEI: String = ""
     @objc var mobileSerie: String = ""
     @objc var mobileColor: String = ""
     @objc var mobileProblem: String = ""
@@ -31,6 +32,8 @@ class OrdenModel: NSObject {
     @objc var repairPerson: String = ""
     @objc var note: String = ""
     @objc var key: String = ""
+    @objc var repairStatus = 0
+    @objc var ordenLog: String = ""
     
     init(data: [String: Any]) {
         super.init()

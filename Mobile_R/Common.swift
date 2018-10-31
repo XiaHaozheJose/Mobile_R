@@ -10,6 +10,12 @@ import Cocoa
 
 let API_ORDEN = "orden.json"
 let API_PERSON = "receivePerson.json"
+let NOTIFICATION_STATE = "NOTIFICATION_STATE"
+let NOTIFICATION_PROBLEM = "NOTIFICATION_PROBLEM"
+let NOTIFICATION_PRICE = "NOTIFICATION_PRICE"
+// 登记人员以及维修人员数组(从Firebase 获取)
+var registerPerson: [RegisterPerson] = []
+
 
 struct BaseString {
     static let Band = "band"
@@ -29,6 +35,7 @@ struct OrdenKeys {
     static let ordenNum = "ordenNum"
     static let clientType = "clientType"
     static let clientName = "clientName"
+    static let clientAddress = "clientAddress"
     static let clientContactName = "clientContactName"
     static let clientContactNum = "clientContactNum"
     static let mobileBand = "mobileBand"
@@ -43,4 +50,7 @@ struct OrdenKeys {
     static let prePrice = "prePrice"
     static let repairPerson = "repairPerson"
     static let note = "note"
+    static let repairStatus = "repairStatus"
+    static let ordenLog = "ordenLog"
 }
+

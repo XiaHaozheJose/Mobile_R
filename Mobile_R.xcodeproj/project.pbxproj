@@ -18,7 +18,13 @@
 		824A7D6C215B5A020099E559 /* Cellphone.plist in Resources */ = {isa = PBXBuildFile; fileRef = 824A7D6B215B5A020099E559 /* Cellphone.plist */; };
 		824A7D6E215B82830099E559 /* CellPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A7D6D215B82830099E559 /* CellPhone.swift */; };
 		82871F15215D3BA500FCEC75 /* OrdenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82871F14215D3BA500FCEC75 /* OrdenModel.swift */; };
+		82C776C6218902E900084936 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C776C5218902E900084936 /* RegisterViewController.swift */; };
+		82C776C82189120400084936 /* PrintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C776C72189120400084936 /* PrintViewController.swift */; };
 		82DCEAF2216B4BAB00C03B14 /* GeneratorTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 82DCEAF1216B4BAB00C03B14 /* GeneratorTool.m */; };
+		82DCEAF4216C995500C03B14 /* HubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DCEAF3216C995500C03B14 /* HubView.swift */; };
+		82DCEAF6216E7CB700C03B14 /* EditStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DCEAF5216E7CB700C03B14 /* EditStateController.swift */; };
+		82DCEAF8216E7CCA00C03B14 /* EditProblemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DCEAF7216E7CCA00C03B14 /* EditProblemController.swift */; };
+		82DCEAFA216E7CDB00C03B14 /* EditPriceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DCEAF9216E7CDB00C03B14 /* EditPriceController.swift */; };
 		82DE0D1E215A3F57008A81DE /* RegisterPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE0D1D215A3F57008A81DE /* RegisterPerson.swift */; };
 		82DE0D20215A483D008A81DE /* OrdenList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82DE0D1F215A483D008A81DE /* OrdenList.plist */; };
 		82DE0D22215A4BE4008A81DE /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DE0D21215A4BE4008A81DE /* Common.swift */; };
@@ -44,9 +50,15 @@
 		824A7D6D215B82830099E559 /* CellPhone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellPhone.swift; sourceTree = "<group>"; };
 		82871F14215D3BA500FCEC75 /* OrdenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdenModel.swift; sourceTree = "<group>"; };
 		8293C33445F986293D6995E9 /* Pods_Mobile_R.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobile_R.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		82C776C5218902E900084936 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		82C776C72189120400084936 /* PrintViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintViewController.swift; sourceTree = "<group>"; };
 		82DCEAEF216B4BAA00C03B14 /* Mobile_R-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mobile_R-Bridging-Header.h"; sourceTree = "<group>"; };
 		82DCEAF0216B4BAB00C03B14 /* GeneratorTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratorTool.h; sourceTree = "<group>"; };
 		82DCEAF1216B4BAB00C03B14 /* GeneratorTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeneratorTool.m; sourceTree = "<group>"; };
+		82DCEAF3216C995500C03B14 /* HubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubView.swift; sourceTree = "<group>"; };
+		82DCEAF5216E7CB700C03B14 /* EditStateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStateController.swift; sourceTree = "<group>"; };
+		82DCEAF7216E7CCA00C03B14 /* EditProblemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProblemController.swift; sourceTree = "<group>"; };
+		82DCEAF9216E7CDB00C03B14 /* EditPriceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPriceController.swift; sourceTree = "<group>"; };
 		82DE0D1D215A3F57008A81DE /* RegisterPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPerson.swift; sourceTree = "<group>"; };
 		82DE0D1F215A483D008A81DE /* OrdenList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = OrdenList.plist; sourceTree = "<group>"; };
 		82DE0D21215A4BE4008A81DE /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
@@ -126,6 +138,12 @@
 				82DCEAF0216B4BAB00C03B14 /* GeneratorTool.h */,
 				82DCEAF1216B4BAB00C03B14 /* GeneratorTool.m */,
 				82DCEAEF216B4BAA00C03B14 /* Mobile_R-Bridging-Header.h */,
+				82DCEAF3216C995500C03B14 /* HubView.swift */,
+				82DCEAF5216E7CB700C03B14 /* EditStateController.swift */,
+				82DCEAF7216E7CCA00C03B14 /* EditProblemController.swift */,
+				82DCEAF9216E7CDB00C03B14 /* EditPriceController.swift */,
+				82C776C5218902E900084936 /* RegisterViewController.swift */,
+				82C776C72189120400084936 /* PrintViewController.swift */,
 			);
 			path = Mobile_R;
 			sourceTree = "<group>";
@@ -245,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8213FDEE2154150B0003154F /* SecondViewController.swift in Sources */,
+				82DCEAF8216E7CCA00C03B14 /* EditProblemController.swift in Sources */,
 				8213FDF52154E5A60003154F /* RightViewController.swift in Sources */,
 				82E29EEE2152A57A007B925A /* FirstViewController.swift in Sources */,
 				8206ABC02152346E0031C621 /* ViewController.swift in Sources */,
@@ -252,9 +271,14 @@
 				8206ABBE2152346E0031C621 /* AppDelegate.swift in Sources */,
 				82E29EF02152B26A007B925A /* EventMonitor.swift in Sources */,
 				8213FDF12154E59B0003154F /* LeftViewController.swift in Sources */,
+				82C776C6218902E900084936 /* RegisterViewController.swift in Sources */,
 				82DE0D1E215A3F57008A81DE /* RegisterPerson.swift in Sources */,
+				82DCEAF6216E7CB700C03B14 /* EditStateController.swift in Sources */,
 				82DE0D22215A4BE4008A81DE /* Common.swift in Sources */,
+				82C776C82189120400084936 /* PrintViewController.swift in Sources */,
+				82DCEAF4216C995500C03B14 /* HubView.swift in Sources */,
 				82DCEAF2216B4BAB00C03B14 /* GeneratorTool.m in Sources */,
+				82DCEAFA216E7CDB00C03B14 /* EditPriceController.swift in Sources */,
 				824A7D6E215B82830099E559 /* CellPhone.swift in Sources */,
 				8213FDEC215393710003154F /* Playlist.swift in Sources */,
 			);
