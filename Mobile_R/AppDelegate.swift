@@ -19,6 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         
         
+
         // Insert code here to initialize your application
         if let button = statusItem.button {
             button.title = "注册用户"
@@ -29,6 +30,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 self.closePopover(sender: nil)
             }
         })
+        
+        
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {

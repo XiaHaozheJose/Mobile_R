@@ -13,14 +13,12 @@ class ViewController: NSViewController,NSTextFieldDelegate{
     // "dd/MM/yyyy, HH:mm"
 
     @objc dynamic var ordenModels: [OrdenModel] = []
-    
     var allOrdenModels: [OrdenModel] = []
     var newOrdenModels: [OrdenModel] = []
     
     @IBOutlet weak var baseView: NSView!
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var searchText: NSSearchField!
-    
     
     lazy var registerView: FirstViewController = {
         let v = FirstViewController.loadFromNib()
@@ -44,18 +42,19 @@ class ViewController: NSViewController,NSTextFieldDelegate{
     // MARK: - Cycle Life
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        self.view.window?.titleVisibility = .visible
+        self.view.window?.styleMask = .closable
+        
         baseView.addSubview(rightDetailViewController.view)
         getOrdenData()
         getPersonData()
         // Do any additional setup after loading the view.
     }
     
-    
     @IBAction func presentNextPage(_ sender: Any) {
         showAlert()
     }
-    
-    
     
     // MARK: - TextfieldDelegate
     override func controlTextDidEndEditing(_ obj: Notification) {
@@ -88,10 +87,6 @@ class ViewController: NSViewController,NSTextFieldDelegate{
             ordenModels = newOrdenModels
         }
     }
-    
-    
-    
-    
 }
 
 

@@ -127,11 +127,11 @@
 				82E29EEF2152B26A007B925A /* EventMonitor.swift */,
 				8213FDEB215393710003154F /* Playlist.swift */,
 				8213FDED2154150B0003154F /* SecondViewController.swift */,
+				82DE0D21215A4BE4008A81DE /* Common.swift */,
 				8213FDEF2154E59B0003154F /* LeftViewController.swift */,
 				8213FDF32154E5A60003154F /* RightViewController.swift */,
 				82DE0D1D215A3F57008A81DE /* RegisterPerson.swift */,
 				82DE0D1F215A483D008A81DE /* OrdenList.plist */,
-				82DE0D21215A4BE4008A81DE /* Common.swift */,
 				824A7D6B215B5A020099E559 /* Cellphone.plist */,
 				824A7D6D215B82830099E559 /* CellPhone.swift */,
 				82871F14215D3BA500FCEC75 /* OrdenModel.swift */,
@@ -183,6 +183,11 @@
 					8206ABB92152346E0031C621 = {
 						CreatedOnToolsVersion = 9.4;
 						LastSwiftMigration = 0940;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -427,7 +432,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jscoder.mobile;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jscoder.reparacionmobile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Mobile_R/Mobile_R-Bridging-Header.h";
@@ -452,7 +457,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jscoder.mobile;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jscoder.reparacionmobile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Mobile_R/Mobile_R-Bridging-Header.h";
